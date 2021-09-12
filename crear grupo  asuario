@@ -1,0 +1,52 @@
+- primero vamos a crear un grupo con dos usuarios
+
+------------------------------------------------------------------------------------------------------
+
+uno enrtar en login:usuario un ejemplo
+y password:******* es ingresando al terminal vamos a comenzar 
+primero enrtrar su- que es un superusuario y la contraseña creada
+
+------------------------------------------------------------------------------------------------------
+
+luego de ingresar el root o superusuario crearemos el grupoadd que es crear nuevo grupo
+- groupadd casa
+luego para verificar si esta hecho escribimos cat /etc/group
+- cat /etc/group -> aparecera la lista y tiene que aparecer el nombre de "casa"
+
+----------------------------------------------------------------------------------------------------------
+
+luego vamos a hacer los nombres de usuarios y como se hace
+primero hay que escribir useradd este permite crear nuevos usuarios
+ejemplo:
+- useradd mama_maritza
+- useradd hijo_ronald
+
+y para verificar que hemos creado los usuarios escribiremos cat /etc/passwd
+- cat /etc/passwd -> y aparece el nombre de mama_maritza y hijo_ronald                   
+                      en este caso hice dos usuarios ya que vamos a agregar los nuevos usuarios al grupo
+                      
+----------------------------------------------------------------------------------------------------------
+
+para agregar desde usuario al grupo es lo siguiente
+-adduser mama_maritza casa
+-adduser hijo_ronald casa 
+ -> adduser es agregar usuarios al grupo, aplicar adduser despues "el nombre de usuario" y luego "nombre del grupo",
+
+-----------------------------------------------------------------------------------------------------------
+
+ahora para modificar el nombre del grupo como el caso que quiero cambiar a casa
+y quiero por "familia"
+y esta en casa:x:1001:mama_maritza,hijo_ronald
+escribimos
+
+- groupmod -g1005 -n familia casa
+
+-group mode (-g nuevo gid) (-n nuevo grupo) nombre-grupo
+
+y al presionar enter aparecera el resultado de que se ha modificado el nombre del grupo
+- y para verificar le aplicamos car /etc/group enter
+- aparecera 
+
+-casa:x:1005:mama_maritza,hijo_ronald
+
+y es asi como funciona.
